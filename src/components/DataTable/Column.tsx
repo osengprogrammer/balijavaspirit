@@ -1,4 +1,5 @@
 'use client'
+//@ts-ignore
 
 import { ColumnDef } from '@tanstack/react-table'
 
@@ -14,7 +15,7 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 
-export type User = {
+export type data = {
   id: string,
   CODE: string,
   CODE_FABRIC: string,
@@ -27,13 +28,9 @@ export type User = {
   PRICE: number
   PRODUCT: string,
   SIZE: string
-  
 }
 
-
-
-
-export const columns: ColumnDef<User>[] = [
+export const columns: ColumnDef<data>[] = [
   {
     accessorKey: 'PRODUCT',
     header: ({ column }) => {
@@ -46,7 +43,7 @@ export const columns: ColumnDef<User>[] = [
           <ArrowUpDown className='ml-2 h-4 w-4' />
         </Button>
       )
-    }
+    },
   },
   {
     accessorKey: 'CODE',
@@ -61,12 +58,10 @@ export const columns: ColumnDef<User>[] = [
     //   return <div className='font-medium'>{formatted}</div>
     // }
   },
-
   {
     accessorKey: 'SIZE',
     header: 'SIZE'
   },
-
   {
     accessorKey: 'FABRIC_COLOR',
     header: 'FABRIC_COLOR'
@@ -95,12 +90,6 @@ export const columns: ColumnDef<User>[] = [
     accessorKey: 'CUSTOMER',
     header: 'CUSTOMER'
   },
-  
-  // FABRIC_COLOR: string,
-  // FABRIC_QTY: number,
-  // LINING_QTY: number,
-  // PRICE: number
-
   {
     id: 'actions',
     cell: ({ row }) => {
@@ -123,8 +112,10 @@ export const columns: ColumnDef<User>[] = [
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem
-              onClick={()=>console.log(user.id)} 
-            >Console.log</DropdownMenuItem>
+              onClick={() => console.log(user.id)}  // Corrected the typo here
+            >
+              Console.log
+            </DropdownMenuItem>
             <DropdownMenuItem>View payment details</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

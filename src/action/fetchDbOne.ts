@@ -6,7 +6,7 @@ import prisma from "@/lib/db"
 const fetchDB = async()=>{
 
     await connectDb()
-    const DBONE = await prisma.DBOne.findMany()
+    const DBONE = await prisma.database.findMany()
     return DBONE
     
 }
