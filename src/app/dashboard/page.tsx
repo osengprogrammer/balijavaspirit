@@ -15,6 +15,7 @@ async function page() {
   // console.log("ok")
   // console.log(DBONE)
   // console.log(voters)
+  console.log(DBONE)
  
 
   return (
@@ -22,8 +23,10 @@ async function page() {
       <Accordion />
       {/* <PageContentForm /> */}
       {/* <ParentComponent/> */}
+      {DBONE.map(x=>(<div key={x.id}>{x.PRODUCT}</div>))}
+
      
-      <DataTable columns={columns} data={DBONE} />
+      {/* <DataTable columns={columns} data={DBONE} /> */}
       </div>
   );
 }
